@@ -22,3 +22,18 @@ keywords:
   - social work informatics
   - information retrieval evaluation
   - evidence-based practice
+references:
+  - type: article
+    title: "Evolution of social work knowledge production over 35 years: An AI-enabled analysis of trends in empiricism, methodology, collaboration, citation patterns, and output"
+    authors:
+      - family-names: "Perron"
+        given-names: "Brian E."
+      - family-names: "Victor"
+        given-names: "Bryan G."
+      - family-names: "Qi"
+        given-names: "Zhengzhe"
+    journal: "Research on Social Work Practice"
+    year: 2026
+    doi: "10.1177/10497315261416833"
+    notes: "Documents the Social Work Research Database (SWRD) v2 infrastructure this benchmark's corpus is drawn from."
+

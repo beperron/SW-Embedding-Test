@@ -25,8 +25,10 @@ even when their words differ.
 
 This repository contains the full evaluation framework, code, test collection, and results for a study
 that benchmarked **twelve free, open-weight embedding models**, **two commercial OpenAI embedding
-models**, and **three cross-encoder rerankers** on a 64,956-record collection of the social work
-research literature (1989–2025). The headline finding: a **free, 300-million-parameter model running
+models**, and **three cross-encoder rerankers** on a 64,956-record collection drawn from the **Social
+Work Research Database (SWRD) v2** — the bibliographic infrastructure documented in Perron, Victor, &
+Qi (2026), *Evolution of social work knowledge production over 35 years* (*Research on Social Work
+Practice*, https://doi.org/10.1177/10497315261416833). The headline finding: a **free, 300-million-parameter model running
 on an ordinary computer matched and beat the paid commercial standard**, and keyword search trailed
 every embedding model tested.
 
@@ -103,8 +105,10 @@ Full methodological detail lives in the accompanying manuscript (in preparation)
 
 ### A note on the corpus
 
-The evaluation corpus is built from bibliographic metadata licensed from Web of Science, Scopus, and
-the Directory of Open Access Journals. Because bulk redistribution of Web of Science / Scopus
+The evaluation corpus is a window of **SWRD v2** (1989–2025, de-duplicated, abstract-bearing records
+only) built from bibliographic metadata licensed from Web of Science, Scopus, and the Directory of
+Open Access Journals — see Perron, Victor, & Qi (2026) for the full database construction
+methodology. Because bulk redistribution of Web of Science / Scopus
 metadata is restricted under their terms of service, **`corpus_identifiers.csv` ships record
 identifiers, titles, years, and sources — not abstract text.** This is enough to identify exactly
 which papers were used and to re-fetch abstract text from the original sources under your own
