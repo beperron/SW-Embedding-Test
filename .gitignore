@@ -15,3 +15,11 @@ dist/
 
 # OS
 .DS_Store
+
+# Manuscript / submission materials — kept out of this public code+data repo
+manuscript/
+submission/
+submission_reports/
+*.docx
+manuscript*.md
+manuscript*.pdf
