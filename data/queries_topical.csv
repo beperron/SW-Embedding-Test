@@ -1,0 +1,151 @@
+query_id,query_text,type,subdomain,seed_id
+q-000,feminist theory social work practice,phrase,social work theory,1
+q-001,research paradigms in social work,phrase,methods,4
+q-002,parenting behavior adolescent aggression,phrase,mental health,10
+q-003,case management community care services,phrase,intervention/clinical,14
+q-004,residential care home inspection standards,phrase,aging,19
+q-005,single fathers social work practice,phrase,child welfare,22
+q-006,group homes intellectual disability,phrase,disability,27
+q-007,urbanization slums developing countries,phrase,poverty,40
+q-008,social worker attitudes toward adoption,phrase,child welfare,48
+q-009,participatory slum upgrading,phrase,community development,49
+q-010,family preservation worker burnout,phrase,child welfare,51
+q-011,cognitive interview child witnesses,phrase,child welfare,54
+q-012,homeless shelter system reform,phrase,housing/homelessness,72
+q-013,public welfare service delivery,phrase,policy,73
+q-014,deception detection social workers,phrase,intervention/clinical,42046
+q-015,welfare reform self-sufficiency recipients,phrase,poverty,76966
+q-016,sex trafficking policies and services,phrase,criminal justice,39488
+q-017,hospital discharge planning social work,phrase,health,30899
+q-018,black families experiences child welfare system,phrase,child welfare,46094
+q-019,housing as a basic human right,phrase,housing/homelessness,86540
+q-020,support services for crime victims,phrase,criminal justice,73347
+q-021,lgbt older adults social work practice,phrase,aging,98835
+q-022,drama based methods social work education,phrase,social work education,126830
+q-023,anti-racist social work education,phrase,social work education,100578
+q-024,technology service delivery developmental disabilities,phrase,disability,108709
+q-025,social work housing advocacy,phrase,housing/homelessness,68151
+q-026,social security older women,phrase,aging,53048
+q-027,doctoral student retention racial diversity,phrase,social work education,37079
+q-028,critical reflection field placement,phrase,social work education,124324
+q-029,recovery model service users,phrase,mental health,122453
+q-030,spirituality in social work practice,phrase,intervention/clinical,72275
+q-031,adolescent opioid misuse depression,phrase,substance use,94087
+q-032,nonprofit leadership professionalization,phrase,policy,72811
+q-033,prison labor exploitation,phrase,criminal justice,70134
+q-034,women disability intersectionality,phrase,disability,59625
+q-035,latina immigrants resilience strengths,phrase,immigration,62377
+q-036,barbershops black men mental health,phrase,mental health,102534
+q-037,crisis intervention aids patients,phrase,health,122165
+q-038,health insurance cost sharing healthcare utilization,phrase,health,88109
+q-039,lone mothers welfare workfare discourse,phrase,poverty,105069
+q-040,lgbt patients primary health care experiences,phrase,health,98547
+q-041,employment at will human service organizations,phrase,policy,33852
+q-042,insider researcher social work qualitative,phrase,methods,22664
+q-043,community organizing neighborhood empowerment outcomes,phrase,community practice,30380
+q-044,hiv prevention african american adolescent girls,phrase,health,44306
+q-045,self care social work students,phrase,intervention/clinical,68767
+q-046,game based intervention dating violence,phrase,intervention/clinical,114932
+q-047,global standards social work profession,phrase,policy,28828
+q-048,solution-focused brief therapy evidence base,phrase,intervention/clinical,120
+q-049,disability rights convention social work practice,phrase,disability,124
+q-050,driving under the influence prevention,phrase,substance use,126
+q-051,native american elderly support systems,phrase,aging,127
+q-052,social network analysis community development,phrase,community practice,128
+q-053,social assistance eligibility decision making,phrase,poverty,129
+q-054,study abroad social work students competencies,phrase,social work education,131
+q-055,recruiting african american research participants,phrase,methods,134
+q-056,housing first homelessness social work,phrase,housing/homelessness,142
+q-057,preventing alcohol-exposed pregnancies high-risk women,phrase,substance use,144
+q-058,incarcerated mothers and their children,phrase,criminal justice,147
+q-059,kinship care funding policy,phrase,child welfare,148
+q-060,personalisation social care policy,phrase,aging,59642
+q-061,neoliberalism social service spending cutbacks,phrase,policy,118053
+q-062,indigenous women human trafficking,phrase,criminal justice,76187
+q-063,high school dropout risk factors,phrase,school social work,122279
+q-064,child maltreatment recurrence protective services,phrase,child welfare,71127
+q-065,tribal social work india,phrase,international,80019
+q-066,narrative therapy practice development,phrase,intervention/clinical,59097
+q-067,trauma substance abuse women prostitution,phrase,substance use,117151
+q-068,microinsurance poverty developing countries,phrase,poverty,124820
+q-069,social work role hospital bioethics committees,phrase,health,445
+q-070,dual diagnosis outpatient treatment strategies,phrase,substance use,470
+q-071,home care worker older adult relationship,phrase,aging,480
+q-072,teen dating violence in high schools,phrase,school social work,488
+q-073,participatory action research power analysis,phrase,methods,505
+q-074,social protection informal workers africa,phrase,policy,515
+q-075,ai generated text academic plagiarism,phrase,social work education,517
+q-076,job demands depression social workers,phrase,mental health,520
+q-077,community mobilization family violence prevention,phrase,family violence,528
+q-078,parental alienation domestic violence custody,phrase,family violence,535
+q-079,doula support perinatal substance use,phrase,substance use,541
+q-080,deaf parents child safeguarding,phrase,disability,543
+q-081,intergroup conflict management youth workshops,phrase,intervention/clinical,484
+q-082,how should clinicians handle forced termination when a therapist leaves,question,intervention/clinical,3
+q-083,principles of care for homeless adults with co-occurring mental illness and substance use,question,housing/homelessness,11
+q-084,how does skin color bias within the black community affect social work practice,question,diversity,23
+q-085,do comprehensive social services help teen mothers on welfare become self sufficient,question,poverty,29
+q-086,does contact with people with intellectual disabilities improve students attitudes,question,disability,41
+q-087,how do families cope when a member develops a mental illness,question,mental health,53
+q-088,are there universal learning objectives for micro practice field placements,question,social work education,74
+q-089,what leadership practices help communities build resilience after disasters,question,disaster/community,79765
+q-090,does a feminist practice course increase empowerment among social work students,question,social work education,83918
+q-091,how do social workers involve children in decisions about their own care,question,child welfare,61193
+q-092,how do parents weigh the risks and rewards of alcohol consumption,question,substance use,52591
+q-093,how do hospice social workers build relationships with patients who have advanced dementia,question,aging,47665
+q-094,how do religious struggles relate to anxiety and life satisfaction among muslims,question,mental health,69668
+q-095,how can community social work respond to austerity and neoliberal social policy,question,policy,116244
+q-096,does comprehensive sex education reduce risky behavior among minority teens,question,school social work,76280
+q-097,how do social workers engage with complex families across different service areas,question,intervention/clinical,67140
+q-098,how do clients and staff understand the therapeutic alliance in addiction group treatment,question,substance use,68830
+q-099,what role does employment play in recovery for people with serious mental illness,question,mental health,48760
+q-100,barriers to employment and health care access among newly resettled refugees,question,immigration,48543
+q-101,how do heuristics influence professional judgment and risk assessment in social work,question,intervention/clinical,35494
+q-102,ethical challenges of obtaining research consent from participants with impaired decision-making capacity,question,methods,109657
+q-103,how does migration control intersect with child welfare for unaccompanied asylum-seeking minors,question,immigration,73159
+q-104,why do ethnic minority groups underutilize the health care delivery system,question,health,117478
+q-105,models of cooperation between schools and social services to support youth,question,school social work,116472
+q-106,applying complexity theory to understand organizational change in adult social care services,question,policy,67057
+q-107,how prepared are social workers to practice competently with lesbian and gay clients,question,intervention/clinical,62980
+q-108,how do welfare and eldercare policies moderate gender differences in older adults' health,question,aging,69891
+q-109,student and caregiver attitudes toward screening for social determinants of health in high schools,question,school social work,55184
+q-110,how do unsheltered women navigate gender norms and personal safety while living on the streets,question,housing/homelessness,96296
+q-111,effectiveness of comprehensive sexuality education compared to abstinence-only programs for adolescents,question,health,110911
+q-112,culturally competent trauma treatment for southeast asian refugees with ptsd,question,mental health,46323
+q-113,how do parents and therapists experience collaboration in early childhood intervention,question,disability,73728
+q-114,how do caseworker assessments of maternal social support affect infant removal decisions,question,child welfare,121
+q-115,why is migration underrepresented in social work curricula and scholarship,question,immigration,125
+q-116,how can fatherhood be used to motivate change in substance use treatment for men,question,substance use,136
+q-117,what challenges face the development of social work education in post-conflict countries,question,social work education,140
+q-118,how do frontline child protection workers address poverty when assessing risk,question,poverty,146
+q-119,how does immigration and citizenship status shape foster care placement for children of immigrant families,question,child welfare,120109
+q-120,do homeless children differ from other low-income children in school functioning and behavior,question,housing/homelessness,33989
+q-121,how did the covid-19 pandemic affect immigrants and refugees in the united states,question,immigration,62920
+q-122,what motivates social work students to specialize in gerontology and geriatric practice,question,aging,77091
+q-123,how can social service agencies respond to the youth gang problem,question,criminal justice,447
+q-124,do parent education groups improve parenting competence and reduce social isolation,question,child welfare,478
+q-125,how can occupational social workers support employees facing prolonged job insecurity,question,policy,482
+q-126,how does case management improve health care access for children living in poverty,question,health,491
+q-127,how do women experience and cope with unsuccessful infertility treatment,question,health,495
+q-128,how can teamwork improve job satisfaction and retention among child welfare workers,question,child welfare,502
+q-129,why should social work education include dedicated coursework on developmental disabilities,question,disability,507
+q-130,applying the transtheoretical model to motivate clients in involuntary substance use treatment,question,substance use,513
+q-131,classroom strategies for teaching the ethics and dilemmas of mandated reporting,question,social work education,530
+q-132,how living alone and poor health increase loneliness among older adults,question,aging,534
+q-133,using mobile applications to train child welfare workers in motivational interviewing skills,question,intervention/clinical,540
+q-134,experiences of disabled refugee women integrating after displacement by war,question,immigration,542
+q-135,dowry attitudes employed women,phrase,gender,34
+q-136,women employment double burden,phrase,gender,36
+q-137,organizational citizenship behavior social service agencies,phrase,organizational/management,22101
+q-138,how do married women resist and cope with stigmatized social identities,question,gender,132
+q-139,how does feminist theory reshape social work knowledge and practice,question,social work theory,1
+q-140,colorism african american community,phrase,diversity,23
+q-141,community participation in urban slum improvement projects,question,community development,49
+q-142,leadership in disaster resilience communities,phrase,disaster/community,79765
+q-143,how can social work practice be adapted for tribal and indigenous communities in india,question,international,80019
+q-144,how can social network analysis strengthen asset-based community development practice,question,community practice,128
+q-145,how social workers engage and mobilize communities to prevent family violence,question,family violence,528
+q-146,qualitative data analysis software,phrase,methods,21
+q-147,citation analysis social work journals,phrase,methods,38
+q-148,how can spreadsheets be used to track client progress and program performance in human services,question,methods,108638
+q-149,how valid are self-report self-esteem measures for clinical social work assessment,question,methods,82776

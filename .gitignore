@@ -1,0 +1,17 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+
+# Secrets & local environment / tooling config
+.env
+.mcp.json
+.claude/
+
+# OS
+.DS_Store

@@ -1,0 +1,53 @@
+# Test-collection generation and LLM-judge settings (local Ollama; distinct families to limit circularity).
+backend: ollama
+generator_model: "gpt-oss:20b"       # query generation
+judge_model: "qwen3.6:35b"           # single relevance judge (CUDA/GGUF build of the Mac's qwen3.6:35b-mlx — same weights; see MIGRATION.md)
+graded_scale: [0, 1, 2, 3]           # 0 irrelevant .. 3 perfectly relevant
+human_validation_n: 150              # stratified sample re-rated by a human expert
+
+# Test-collection sizing (tuned for the Claude labeling swarm)
+n_seed_docs: 150          # documents sampled to seed synthetic queries
+queries_per_seed: 2       # answerable info-needs per seed (~300 synthetic queries)
+n_known_item: 0           # known-item deferred (judgment-free; generate after embeddings free the GPU)
+judge_pool_depth: 10      # BM25 pool depth per query for the swarm
+sample_seed: 20260627
+
+# CUDA judging throughput (PC migration; see MIGRATION.md)
+judge_think: false        # disable qwen3.6 reasoning — judge emits a single digit, ~16x faster & consistent
+judge_workers: 3          # concurrent Ollama requests; match the server's OLLAMA_NUM_PARALLEL
+judge_checkpoint: 250     # flush qrels to disk every N judged pairs (resume-safe)
+
+judge_prompt_version: "v1"
+judge_prompt: |
+  You are an expert social work researcher assessing whether a paper is relevant to a query.
+  Rate relevance on a 0-3 scale:
+  3 = Perfectly relevant: directly and fully answers the information need.
+  2 = Highly relevant: addresses the core need with substantial useful content.
+  1 = Marginally relevant: touches the topic but does not satisfy the need.
+  0 = Not relevant.
+  Respond with ONLY a single digit (0, 1, 2, or 3).
+
+  Query: {query}
+
+  Paper title: {title}
+  Paper abstract: {abstract}
+
+  Relevance (0-3):
+
+generator_prompt: |
+  You are a social worker, student, or researcher typing into a research database search box.
+  From the paper below, identify the GENERAL topic, then write {n} realistic search queries for that topic.
+
+  Rules:
+  - Queries must be SHORT PHRASES or keyword fragments, NOT full sentences. No question marks,
+    no "how/what/why/does" wording, no complete grammatical sentences. Write what someone
+    actually types into a search box.
+  - 2 to 7 words each. Vary length: make one terse (2-4 words) and one a longer descriptive
+    phrase (5-7 words).
+  - Capture the general information need, NOT this specific study. No program names, places,
+    organizations, author names, countries, dates, sample sizes, or specific findings.
+  - Plain social work terminology, lowercase.
+  Return ONLY the queries, one per line, no numbering.
+
+  Title: {title}
+  Abstract: {abstract}

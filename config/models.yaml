@@ -1,0 +1,35 @@
+# Model registry for the SWRD retrieval evaluation.
+# backend: st (sentence-transformers/MPS) | flag (FlagEmbedding) | mlx
+# Tier 1+2 + rerankers enabled first; Tier 3 disabled until pipeline proven (per user decision).
+
+dense:
+  - {key: minilm-l6,        hf_id: sentence-transformers/all-MiniLM-L6-v2,  backend: st,   dim: 384,  max_seq: 256, normalize: true,  doc_prefix: "",                 query_prefix: "",                 batch_size: 256, tier: 1, license: apache-2.0,  trust_remote_code: false, enabled: true}
+  - {key: mpnet-base,       hf_id: sentence-transformers/all-mpnet-base-v2, backend: st,   dim: 768,  max_seq: 384, normalize: true,  doc_prefix: "",                 query_prefix: "",                 batch_size: 128, tier: 1, license: apache-2.0,  trust_remote_code: false, enabled: true}
+  - {key: bge-small-en,     hf_id: BAAI/bge-small-en-v1.5,                  backend: st,   dim: 384,  max_seq: 512, normalize: true,  doc_prefix: "",                 query_prefix: "Represent this sentence for searching relevant passages: ", batch_size: 256, tier: 1, license: mit, trust_remote_code: false, enabled: true}
+  - {key: bge-large-en,     hf_id: BAAI/bge-large-en-v1.5,                  backend: st,   dim: 1024, max_seq: 512, normalize: true,  doc_prefix: "",                 query_prefix: "Represent this sentence for searching relevant passages: ", batch_size: 96,  tier: 1, license: mit, trust_remote_code: false, enabled: true}
+  - {key: nomic-v1.5,       hf_id: nomic-ai/nomic-embed-text-v1.5,          backend: st,   dim: 768,  max_seq: 2048, normalize: true, doc_prefix: "search_document: ", query_prefix: "search_query: ",     batch_size: 128, tier: 1, license: apache-2.0,  trust_remote_code: true,  enabled: true}
+  - {key: modernbert-embed, hf_id: nomic-ai/modernbert-embed-base,          backend: st,   dim: 768,  max_seq: 2048, normalize: true, doc_prefix: "search_document: ", query_prefix: "search_query: ",     batch_size: 128, tier: 1, license: apache-2.0,  trust_remote_code: false, enabled: true}
+  # gte-ml-base DISABLED: remote modeling code is incompatible with transformers 4.x (IndexError on both MPS and CPU). Revisit with a pinned transformers.
+  - {key: gte-ml-base,      hf_id: Alibaba-NLP/gte-multilingual-base,       backend: st,   dim: 768,  max_seq: 512,  normalize: true, doc_prefix: "",                 query_prefix: "",                 batch_size: 64,  tier: 1, license: apache-2.0,  trust_remote_code: true,  enabled: false}
+  - {key: me5-large,        hf_id: intfloat/multilingual-e5-large,          backend: st,   dim: 1024, max_seq: 512, normalize: true,  doc_prefix: "passage: ",        query_prefix: "query: ",          batch_size: 96,  tier: 1, license: mit, trust_remote_code: false, enabled: true}
+  - {key: bge-m3,           hf_id: BAAI/bge-m3,                             backend: flag, dim: 1024, max_seq: 1024, normalize: true, doc_prefix: "",                 query_prefix: "",                 batch_size: 64,  tier: 1, license: mit, trust_remote_code: false, enabled: true}
+  - {key: qwen3-emb-0.6b,   hf_id: Qwen/Qwen3-Embedding-0.6B,               backend: st,   dim: 1024, max_seq: 2048, normalize: true, doc_prefix: "",                 query_prefix: "Instruct: Given a web search query, retrieve relevant passages that answer the query\nQuery: ", batch_size: 64, tier: 2, license: apache-2.0, trust_remote_code: false, enabled: true}
+  - {key: qwen3-emb-4b,     hf_id: Qwen/Qwen3-Embedding-4B,                 backend: st,   dim: 2560, max_seq: 2048, normalize: true, doc_prefix: "",                 query_prefix: "Instruct: Given a web search query, retrieve relevant passages that answer the query\nQuery: ", batch_size: 16, tier: 2, license: apache-2.0, trust_remote_code: false, enabled: true}
+  - {key: qwen3-emb-8b,     hf_id: Qwen/Qwen3-Embedding-8B,                 backend: st,   dim: 4096, max_seq: 2048, normalize: true, doc_prefix: "",                 query_prefix: "Instruct: Given a web search query, retrieve relevant passages that answer the query\nQuery: ", batch_size: 8,  tier: 2, license: apache-2.0, trust_remote_code: false, enabled: true}
+  # Google EmbeddingGemma via local Ollama (no HF gating). hf_id holds the Ollama tag. Task prefixes per model card.
+  - {key: embeddinggemma,   hf_id: "embeddinggemma:latest",                 backend: ollama, dim: 768, max_seq: 2048, normalize: true, doc_prefix: "title: none | text: ", query_prefix: "task: search result | query: ", batch_size: 64, tier: 1, license: gemma, trust_remote_code: false, enabled: true}
+  # Tier 3 (disabled for first pass)
+  - {key: nemotron-8b,      hf_id: nvidia/llama-embed-nemotron-8b,          backend: st,   dim: 4096, max_seq: 2048, normalize: true, doc_prefix: "",                 query_prefix: "",                 batch_size: 8,  tier: 3, license: nvidia-open, trust_remote_code: true, enabled: false}
+  - {key: kalm-gemma3-12b,  hf_id: HIT-TMG/KaLM-Embedding-Gemma3-12B-2511,  backend: st,   dim: 3840, max_seq: 2048, normalize: true, doc_prefix: "",                 query_prefix: "",                 batch_size: 4,  tier: 3, license: gemma, trust_remote_code: true, enabled: false}
+
+rerankers:
+  - {key: bge-rerank-v2-m3,  hf_id: BAAI/bge-reranker-v2-m3,            backend: st,   type: cross-encoder,   batch_size: 64, enabled: true}
+  - {key: qwen3-rerank-0.6b, hf_id: Qwen/Qwen3-Reranker-0.6B,          backend: st,   type: cross-encoder,   batch_size: 64, enabled: true}
+  # qwen3-rerank-4b DISABLED: a 4B cross-encoder is ~12-20 h to run locally and adds no claim beyond the other rerankers; excluded for runtime.
+  - {key: qwen3-rerank-4b,   hf_id: Qwen/Qwen3-Reranker-4B,            backend: st,   type: cross-encoder,   batch_size: 16, enabled: false}
+  - {key: mxbai-rerank-l-v2, hf_id: mixedbread-ai/mxbai-rerank-large-v2, backend: mxbai, type: generative-reranker, batch_size: 32, enabled: true}
+  - {key: colbertv2,         hf_id: colbert-ir/colbertv2.0,            backend: pylate, type: late-interaction, batch_size: 32, enabled: false}
+
+# Proprietary incumbent: deferred (needs OPENAI_API_KEY to embed queries; only text-embedding-3-small vectors exist in SWRD).
+incumbent:
+  - {key: openai-3-small, dim: 1536, source: openai_title_abstract_embeddings, enabled: false}

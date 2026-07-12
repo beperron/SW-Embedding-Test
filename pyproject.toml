@@ -1,0 +1,40 @@
+[project]
+name = "sswr-eval"
+version = "0.1.0"
+description = "Evaluation pipeline for open-weight embedding models and cross-encoder rerankers over the social work research literature"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "torch>=2.4",
+    "sentence-transformers>=3.0",
+    "transformers>=4.44",
+    "bm25s>=0.2",
+    "ir-measures>=0.3.6",
+    "pandas>=2.2",
+    "pyarrow>=17",
+    "numpy>=1.26,<2.2",
+    "scipy>=1.13",
+    "psycopg[binary]>=3.2",
+    "pydantic>=2.8",
+    "typer>=0.12",
+    "tqdm>=4.66",
+    "ollama>=0.3",
+    "python-dotenv>=1.0",
+    "pyyaml>=6.0",
+    "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+flag = ["FlagEmbedding>=1.3"]
+mlx = ["mlx>=0.18", "mlx-lm>=0.18"]
+colbert = ["pylate>=1.1"]
+rerank = ["rerankers>=0.6"]
+
+[project.scripts]
+sswr-eval = "sswr_eval.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sswr_eval"]

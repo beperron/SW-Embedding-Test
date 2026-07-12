@@ -1,0 +1,13 @@
+# Evaluation configuration.
+corpus: expansion          # primary (51,751 OpenAI-overlap) | expansion (68,043 abstract-bearing). Expansion default since OpenAI incumbent is deferred.
+metrics: [nDCG@10, R@10, R@100, RR@10, AP@100]
+known_item_metric: "Success@1"
+k_values: [10, 100]
+retrieve_depth: 100
+rerank_depths: [50, 100]
+bootstrap_resamples: 10000
+correction: holm
+min_ndcg_delta: 0.01
+seed: 20260627
+hybrid_rrf_k: 60          # RRF constant for dense+BM25 fusion
+pool_depth: 100           # depth-k pooling across systems for judging

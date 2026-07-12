@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, test collection, or results, please cite it as below."
+title: "Searching the Social Work Literature by Meaning: An Evaluation Framework for Embedding Models and Rerankers"
+abstract: >-
+  A reproducible framework for evaluating open-weight, locally runnable text-embedding
+  models and cross-encoder rerankers for semantic search over the social work research
+  literature, including a domain test collection built with a frontier-committee
+  paired-comparison judging method and a three-rater human validation instrument.
+type: software
+authors:
+  - given-names: "Brian E."
+    family-names: "Perron"
+    affiliation: "University of Michigan, School of Social Work"
+    orcid: "https://orcid.org/0009-0008-4865-451X"
+version: "1.0.0"
+date-released: "2026-07-12"
+license: MIT
+keywords:
+  - semantic retrieval
+  - text embeddings
+  - cross-encoder reranking
+  - social work informatics
+  - information retrieval evaluation
+  - evidence-based practice
