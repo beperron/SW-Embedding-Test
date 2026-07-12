@@ -1,52 +1,91 @@
 <div align="center">
 
-# Searching the Social Work Literature by Meaning
+# 🔎 Searching the Social Work Literature by Meaning
 
 ### Benchmarking free and commercial embedding models and rerankers for retrieval over the social work research literature
 
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![Runs locally](https://img.shields.io/badge/Runs-locally%20on%20your%20machine-2ea44f)](#privacy--data)
+[![Runs locally](https://img.shields.io/badge/Runs-locally%20on%20your%20machine-2ea44f)](#-privacy--data)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Best score](https://img.shields.io/badge/best%20score-0.846%20nDCG%4010-2ea44f)](#-results-at-a-glance)
+[![Models tested](https://img.shields.io/badge/models%20tested-14-2f6fb3)](data/metrics_leaderboard.csv)
 
 </div>
 
 ---
 
-## What is this?
+## 🧭 In one paragraph
 
-Every year, more social work research is published than the year before — which makes it easier to
-miss the study that matters. Most literature search still works by matching exact keywords: a search
-for **"kinship care"** can miss a study that only says **"relative caregivers."**
-
-A different kind of AI tool — an **embedding model** — searches by *meaning* instead of exact words.
-These models are not chatbots; they don't write anything. They read a study's title and abstract and
-convert it into a location on a "map of meaning," so studies about similar ideas sit near one another
-even when their words differ.
-
-This repository contains the full evaluation framework, code, test collection, and results for a study
-that benchmarked **twelve free, open-weight embedding models**, **two commercial OpenAI embedding
-models**, and **three cross-encoder rerankers** on a 64,956-record collection drawn from the **Social
-Work Research Database (SWRD) v2** — the bibliographic infrastructure documented in Perron, Victor, &
-Qi (2026), *Evolution of social work knowledge production over 35 years* (*Research on Social Work
-Practice*, https://doi.org/10.1177/10497315261416833). The headline finding: a **free, 300-million-parameter model running
-on an ordinary computer matched and beat the paid commercial standard**, and keyword search trailed
-every embedding model tested.
+Every year, more social work research is published than the year before, which makes it easier to
+miss the study that matters. Most literature search still works by matching exact keywords, so a
+search for **"kinship care"** can miss a study that only says **"relative caregivers."** An
+**embedding model** fixes this by searching for *meaning* instead of exact words. This repository
+benchmarks **14 embedding models** (12 free, 2 paid) and **3 rerankers** on **64,956 social work
+research records**, and finds that a **free, tiny model running on an ordinary computer matched and
+beat the paid commercial standard.**
 
 ---
 
-## Key ideas, in plain language
+## 📊 Results at a glance
+
+<div align="center">
+<img src="assets/leaderboard.png" alt="Bar chart ranking 14 embedding models and a keyword baseline by search quality (nDCG@10). The top scores, in descending order: Qwen3-Embedding-8B 0.842, Qwen3-Embedding-4B 0.825, OpenAI text-embedding-3-large 0.807 (paid), BGE-large-en and EmbeddingGemma both 0.793, down to BM25 keyword search at 0.604." width="640">
+</div>
+
+- 🏆 **Best overall:** EmbeddingGemma + a reranker (**0.846**) — beats every paid tool, on a model small enough for a laptop.
+- 💸 **Free vs. paid:** free tools matched or beat both OpenAI tiers; six free models beat the everyday paid default.
+- 🐢 **Keyword search lost, every time:** all 14 embedding models outscored plain keyword matching.
+
+---
+
+## 🧩 Why embeddings matter
+
+An embedding model isn't a chatbot — it never writes anything. It reads text and turns its meaning
+into numbers, so it can tell that two passages are "about the same thing" even when they don't share
+a single word. That one capability is quietly useful across social work:
+
+| | |
+|---|---|
+| 📚 **Evidence-based practice** | Find studies that answer a practice question without guessing every synonym an author might have used. |
+| 🗂️ **Literature reviews** | Sweep a large body of research by topic and catch relevant work that keyword search misses. |
+| 🏢 **Agency knowledge bases** | Search policies, program records, and practice guidance by meaning — locally, so nothing sensitive leaves the building. |
+| 🤖 **Grounding AI assistants** | Any chatbot that answers from real documents relies on a tool like this to find them first. |
+| 💰 **Cost and control** | The strongest results in this study came from free, open-weight models — no subscription, no vendor, no data leaving your machine. |
+
+---
+
+## ⚙️ How a search works
+
+```mermaid
+flowchart TD
+    A["🔍 A person types a search<br/><i>'kinship care placement stability'</i>"] --> B
+    B["🧠 Embedding model<br/>compares meaning against every study at once<br/><b>well under 1 second</b>"] --> C
+    C["📋 Shortlist of likely matches<br/>~100 candidate studies"] --> D
+    D{"🔁 Reranker<br/>optional second look"}
+    D -- skip it --> F
+    D -- use it --> E["🧐 Re-reads each candidate carefully<br/><b>adds 1.6–14 seconds</b>"]
+    E --> F["✅ Results<br/>the 10 best-matching studies"]
+```
+
+Rerankers are worth their added time mainly when the underlying embedding model is weak — for a
+strong model, they add little. See [`data/metrics_leaderboard.csv`](data/metrics_leaderboard.csv) for
+every model × reranker combination tested.
+
+---
+
+## 📖 Key terms, in plain language
 
 | Term | What it means here |
 |---|---|
-| **Embedding model** (the *first-pass finder*) | Turns each study's title and abstract into a list of numbers — like coordinates on a "map of meaning" — so similar ideas sit near each other even with different words. Fast; scans the whole collection at once. |
+| **Embedding model** (the *first-pass finder*) | Turns each study's title and abstract into a list of numbers — coordinates on a "map of meaning" — so similar ideas sit near each other even with different words. Fast; scans the whole collection at once. |
 | **Reranker / cross-encoder** (the *careful second reader*) | Reads the search and each shortlisted study *together*, side by side, and re-orders the shortlist so the best answers rise to the top. Slower, but more discerning. |
 | **Open-weight / local model** | A model whose internals are openly available and that runs on an ordinary computer — no subscription, no per-search fee, nothing sent to an outside company. |
-| **Generative AI vs. retrieval AI** | Generative AI *writes* new text (chatbots). Retrieval AI *finds* existing documents. This project is about retrieval — a different, older technology that predates the chatbot era and quietly powers modern search. |
+| **Generative AI vs. retrieval AI** | Generative AI *writes* new text (chatbots). Retrieval AI *finds* existing documents. This project is about retrieval — an older technology that predates the chatbot era and quietly powers modern search. |
 | **nDCG@10** | The headline search-quality score: 0–1, higher when the most relevant studies land nearest the top of the first ten results. |
 
 ---
 
-## How the evaluation works
+## 🔬 How the evaluation works
 
 1. **Topical search quality** — 150 curated queries (realistic search-box phrases and natural-language
    questions) were run against every model. Because no single AI judge should grade its own homework,
@@ -68,7 +107,7 @@ Full methodological detail lives in the accompanying manuscript (in preparation)
 
 ---
 
-## What's in this repository
+## 📂 What's in this repository
 
 ```
 .
@@ -77,6 +116,8 @@ Full methodological detail lives in the accompanying manuscript (in preparation)
 ├── CITATION.cff
 ├── pyproject.toml
 ├── .env.example                    # template for your own Supabase / API settings
+├── assets/
+│   └── leaderboard.png              # the chart above, generated from data/metrics_leaderboard.csv
 ├── src/sswr_eval/                   # the evaluation pipeline (one module per stage)
 ├── config/
 │   ├── models.yaml                  # embedding models + rerankers under test
@@ -108,16 +149,16 @@ Full methodological detail lives in the accompanying manuscript (in preparation)
 The evaluation corpus is a window of **SWRD v2** (1989–2025, de-duplicated, abstract-bearing records
 only) built from bibliographic metadata licensed from Web of Science, Scopus, and the Directory of
 Open Access Journals — see Perron, Victor, & Qi (2026) for the full database construction
-methodology. Because bulk redistribution of Web of Science / Scopus
-metadata is restricted under their terms of service, **`corpus_identifiers.csv` ships record
-identifiers, titles, years, and sources — not abstract text.** This is enough to identify exactly
-which papers were used and to re-fetch abstract text from the original sources under your own
-license. Everything *derived* from the corpus by this study (the queries, every relevance judgment,
-the human-validation ratings, and all results) is released in full.
+methodology. Because bulk redistribution of Web of Science / Scopus metadata is restricted under
+their terms of service, **`corpus_identifiers.csv` ships record identifiers, titles, years, and
+sources — not abstract text.** This is enough to identify exactly which papers were used and to
+re-fetch abstract text from the original sources under your own license. Everything *derived* from
+the corpus by this study (the queries, every relevance judgment, the human-validation ratings, and
+all results) is released in full.
 
 ---
 
-## Reproducing the pipeline
+## 🚀 Reproducing the pipeline
 
 ```bash
 # 1. Set up the environment (Python 3.12)
@@ -142,7 +183,7 @@ A CUDA-capable GPU is recommended for the larger embedding models; smaller model
 
 ---
 
-## Privacy & data
+## 🔐 Privacy & data
 
 - **Local-first.** The embedding models and rerankers run on your own machine — no per-search fees, no
   vendor lock-in.
@@ -154,7 +195,7 @@ A CUDA-capable GPU is recommended for the larger embedding models; smaller model
 
 ---
 
-## How AI was used in this project
+## 🤖 How AI was used in this project
 
 AI assistants supported drafting, editing, analysis code, and figure generation throughout. Two
 open-weight AI models generated and curated the evaluation queries. Two frontier AI models, accessed
@@ -164,16 +205,16 @@ the authors, who take full responsibility for the work.
 
 ---
 
-## Citation
+## 📚 Citation
 
 If you use this framework, test collection, or results, please cite it — see [`CITATION.cff`](CITATION.cff).
 A full citation to the accompanying paper will be added once it is published.
 
-## License
+## ⚖️ License
 
 Released under the [MIT License](LICENSE) — free to use, adapt, and build on, with attribution.
 
-## Acknowledgments
+## 🙏 Acknowledgments
 
 Built on the open-source ecosystem for text embeddings and information-retrieval evaluation, including
 `sentence-transformers`, `FlagEmbedding`, `bm25s`, and `ir-measures`.
