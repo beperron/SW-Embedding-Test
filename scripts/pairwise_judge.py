@@ -14,7 +14,7 @@ from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
 import ollama
-from sswr_eval import config, corpus
+from swrd_eval import config, corpus
 
 JUDGE = os.environ.get("JUDGE_MODEL", "qwen3.6:35b")
 M = int(os.environ.get("M", "10"))          # comparisons per doc (≈)

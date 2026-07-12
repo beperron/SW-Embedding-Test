@@ -1,7 +1,7 @@
 import glob, json, os
 import numpy as np, pandas as pd
-from sswr_eval import config, corpus as C
-from sswr_eval.embedders import build
+from swrd_eval import config, corpus as C
+from swrd_eval.embedders import build
 EMB=config.EMB_DIR
 ids=np.load(EMB/'ids.npy')
 corp=pd.read_parquet('runs/corpus.parquet'); corp['yr']=pd.to_numeric(corp['publication_year'],errors='coerce')

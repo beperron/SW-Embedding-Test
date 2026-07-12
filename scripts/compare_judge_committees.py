@@ -3,7 +3,7 @@ Kimi-K2.6) pairwise leaderboards. Tests the same-family-bias hypothesis: do the 
 EmbeddingGemma candidates rank higher under the same-family judges than under neutral judges?"""
 import pandas as pd
 from scipy.stats import spearmanr
-from sswr_eval import config
+from swrd_eval import config
 sf = pd.read_parquet(config.RUNS_DIR/"metrics_pairwise.parquet")[["system","nDCG@10"]].rename(columns={"nDCG@10":"samefam"})
 fr = pd.read_parquet(config.RUNS_DIR/"metrics_pairwise_frontier.parquet")[["system","nDCG@10"]].rename(columns={"nDCG@10":"frontier"})
 m = sf.merge(fr,on="system")

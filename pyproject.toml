@@ -1,5 +1,5 @@
 [project]
-name = "sswr-eval"
+name = "swrd-eval"
 version = "0.1.0"
 description = "Evaluation pipeline for open-weight embedding models and cross-encoder rerankers over the social work research literature"
 requires-python = ">=3.12,<3.13"
@@ -30,11 +30,11 @@ colbert = ["pylate>=1.1"]
 rerank = ["rerankers>=0.6"]
 
 [project.scripts]
-sswr-eval = "sswr_eval.cli:app"
+swrd-eval = "swrd_eval.cli:app"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/sswr_eval"]
+packages = ["src/swrd_eval"]

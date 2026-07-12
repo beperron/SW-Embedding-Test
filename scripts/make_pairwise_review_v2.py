@@ -10,7 +10,7 @@ Output: reports/pairwise_review_v2.html + reports/pairwise_review_v2_items.csv
 from __future__ import annotations
 import json, random
 import pandas as pd
-from sswr_eval import config, corpus
+from swrd_eval import config, corpus
 
 PER_BAND = 40
 rng = random.Random(20260701)

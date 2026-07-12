@@ -118,7 +118,7 @@ Full methodological detail lives in the accompanying manuscript (in preparation)
 ├── .env.example                    # template for your own Supabase / API settings
 ├── assets/
 │   └── leaderboard.png              # the chart above, generated from data/metrics_leaderboard.csv
-├── src/sswr_eval/                   # the evaluation pipeline (one module per stage)
+├── src/swrd_eval/                   # the evaluation pipeline (one module per stage)
 ├── config/
 │   ├── models.yaml                  # embedding models + rerankers under test
 │   ├── eval.yaml                    # metrics, k-values, bootstrap settings
@@ -169,16 +169,16 @@ uv pip install -e .
 cp .env.example .env
 
 # 3. Run the pipeline stages
-PYTHONPATH=src python -m sswr_eval.cli export     # pull the corpus
-PYTHONPATH=src python -m sswr_eval.cli embed      # embed with each model
-PYTHONPATH=src python -m sswr_eval.cli retrieve   # dense + BM25 + hybrid retrieval
-PYTHONPATH=src python -m sswr_eval.cli rerank     # cross-encoder reranking
+PYTHONPATH=src python -m swrd_eval.cli export     # pull the corpus
+PYTHONPATH=src python -m swrd_eval.cli embed      # embed with each model
+PYTHONPATH=src python -m swrd_eval.cli retrieve   # dense + BM25 + hybrid retrieval
+PYTHONPATH=src python -m swrd_eval.cli rerank     # cross-encoder reranking
 python scripts/pairwise_judge.py                  # frontier-committee judging
 python scripts/evaluate_pairwise.py               # Bradley–Terry + nDCG@10
 python scripts/ki_eval_final.py                   # known-item evaluation
 ```
 
-Each stage is resumable and idempotent — see the module docstrings in `src/sswr_eval/` for details.
+Each stage is resumable and idempotent — see the module docstrings in `src/swrd_eval/` for details.
 A CUDA-capable GPU is recommended for the larger embedding models; smaller models run on CPU.
 
 ---

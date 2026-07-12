@@ -9,7 +9,7 @@ import glob
 import numpy as np
 import pandas as pd
 from scipy.stats import kendalltau
-from sswr_eval import config
+from swrd_eval import config
 
 
 def bradley_terry(docs, comps, iters=200, tol=1e-9):

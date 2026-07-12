@@ -1,7 +1,7 @@
 """Unit tests for stats, RRF, and LLM-output parsers (no GPU / no network)."""
 import numpy as np
-from sswr_eval import stats
-from sswr_eval.testset import _clean_queries, _parse_grade
+from swrd_eval import stats
+from swrd_eval.testset import _clean_queries, _parse_grade
 
 
 def test_holm_monotone_and_bounded():

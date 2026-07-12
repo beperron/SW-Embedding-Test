@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 import numpy as np
 import pandas as pd
-from sswr_eval import config
+from swrd_eval import config
 
 
 def qwk(a, b, k=4):
