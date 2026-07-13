@@ -103,8 +103,6 @@ every model × reranker combination tested.
    the AI committee and direct rater-to-rater concordance — the human-to-human reference band against
    which committee-to-human agreement should be read.
 
-Full methodological detail lives in the accompanying manuscript (in preparation).
-
 ---
 
 ## 📂 What's in this repository
@@ -208,7 +206,6 @@ the authors, who take full responsibility for the work.
 ## 📚 Citation
 
 If you use this framework, test collection, or results, please cite it — see [`CITATION.cff`](CITATION.cff).
-A full citation to the accompanying paper will be added once it is published.
 
 ## ⚖️ License
 
