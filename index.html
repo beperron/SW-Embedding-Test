@@ -61,7 +61,7 @@
       <div style="margin-top:20px; padding-top:18px; border-top:1px solid rgba(255,255,255,0.12); max-width:74ch;">
         <p style="margin:0 0 10px; font-size:10.5px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#6E6B5E;">Author note · ORCID</p>
         <div style="display:flex; flex-wrap:wrap; column-gap:26px; row-gap:8px;">
-          <a href="https://orcid.org/0009-0008-4865-451X" style="display:inline-flex; align-items:center; gap:7px; font-size:13px; color:#CFE7DC; border:none;"><span style="width:6px; height:6px; border-radius:999px; background:#5FC79E;"></span>Brian E. Perron</a>
+          <a href="https://beperron.github.io/" style="display:inline-flex; align-items:center; gap:7px; font-size:13px; color:#CFE7DC; border:none;"><span style="width:6px; height:6px; border-radius:999px; background:#5FC79E;"></span>Brian E. Perron</a>
           <a href="https://orcid.org/0000-0002-1024-0513" style="display:inline-flex; align-items:center; gap:7px; font-size:13px; color:#CFE7DC; border:none;"><span style="width:6px; height:6px; border-radius:999px; background:#5FC79E;"></span>Miao Wang</a>
           <a href="https://orcid.org/0009-0009-2017-049X" style="display:inline-flex; align-items:center; gap:7px; font-size:13px; color:#CFE7DC; border:none;"><span style="width:6px; height:6px; border-radius:999px; background:#5FC79E;"></span>Nanyi Deng</a>
           <a href="https://orcid.org/0000-0003-3777-4213" style="display:inline-flex; align-items:center; gap:7px; font-size:13px; color:#CFE7DC; border:none;"><span style="width:6px; height:6px; border-radius:999px; background:#5FC79E;"></span>Eunhye Ahn</a>
@@ -197,6 +197,11 @@
       </div>
       <h2 style="margin:0; max-width:22ch; font-size:clamp(26px,3.2vw,34px); font-weight:600; letter-spacing:-0.018em; color:#FBFAF7; line-height:1.15;">Small and free held its own — and then some</h2>
 
+      <div style="margin-top:32px; background:#FBFAF7; border-radius:10px; padding:20px 22px 8px; box-shadow:0 1px 2px rgba(0,0,0,0.2);">
+        <img src="assets/vs-openai.png" alt="Bar chart comparing free and paid OpenAI embedding models by search quality (nDCG@10). EmbeddingGemma plus reranker (free) leads at 0.846, followed by Qwen3-Embedding-8B (free) at 0.842, then OpenAI text-embedding-3-large (paid) at 0.807, EmbeddingGemma alone (free) at 0.793, OpenAI text-embedding-3-small (paid) at 0.769, and keyword search (BM25) last at 0.604." style="width:100%; height:auto; display:block; border-radius:4px;">
+      </div>
+      <p style="margin:14px 0 0; font-size:13px; color:#8C8A7E; max-width:70ch;">Both free configurations shown here outscore both paid OpenAI tiers — and every embedding model tested, free or paid, clears the keyword-search baseline by a wide margin.</p>
+
       <div style="margin-top:36px; display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
         <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.12); border-radius:8px; padding:26px;">
           <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#8C8A7E;">finding 01</span>
@@ -215,6 +220,21 @@
         </div>
       </div>
       <p style="margin:22px 0 0; font-size:13px; color:#8C8A7E; max-width:70ch;">Findings from the SWRD v2 retrieval benchmark (manuscript currently under review). Results are specific to retrieval on research-abstract text; your corpus may differ — which is exactly why testing beats reputation.</p>
+
+      <div style="margin-top:56px; display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+        <div>
+          <div style="background:#FBFAF7; border-radius:10px; padding:16px 18px 6px; box-shadow:0 1px 2px rgba(0,0,0,0.2);">
+            <img src="assets/reranker-effect.png" alt="Dumbbell chart showing each embedding model's search quality alone versus with its best reranker. Weak free models like MiniLM-L6 and MPNet-base gain the most (open circle to filled circle spans far apart). The strongest free model, Qwen3-Embedding-8B, barely moves. Both paid OpenAI models are shown in amber and also gain substantially from reranking." style="width:100%; height:auto; display:block; border-radius:4px;">
+          </div>
+          <p style="margin:12px 0 0; font-size:13px; color:#B9B7AC; max-width:60ch;">A reranker rescues weak models — including OpenAI's own — but adds almost nothing once a model is already strong.</p>
+        </div>
+        <div>
+          <div style="background:#FBFAF7; border-radius:10px; padding:16px 18px 6px; box-shadow:0 1px 2px rgba(0,0,0,0.2);">
+            <img src="assets/known-item.png" alt="Bar chart showing Success at 1: how often each model found one specific target paper on the first try, given a paraphrased description. All free and paid models cluster tightly between 79% and 92%. Qwen3-Embedding-8B (free) leads at 92.1%, ahead of OpenAI text-embedding-3-large (paid) at 91.9%." style="width:100%; height:auto; display:block; border-radius:4px;">
+          </div>
+          <p style="margin:12px 0 0; font-size:13px; color:#B9B7AC; max-width:60ch;">For relocating a specific known paper, nearly every model — free or paid — performs well; the free leader edges out the paid flagship here too.</p>
+        </div>
+      </div>
     </div>
   </section>
 
