@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this software, test collection, or results, please cite it as below."
+message: "If you use this software, test collection, or results, please cite it as below. A manuscript describing this study is currently under review; see preferred-citation for the paper-in-review entry."
 title: "Searching the Social Work Literature by Meaning: An Evaluation Framework for Embedding Models and Rerankers"
 abstract: >-
   A reproducible framework for evaluating open-weight, locally runnable text-embedding
@@ -10,8 +10,27 @@ type: software
 authors:
   - given-names: "Brian E."
     family-names: "Perron"
-    affiliation: "University of Michigan, School of Social Work"
+    affiliation: "School of Social Work, University of Michigan, Ann Arbor, MI, United States"
     orcid: "https://orcid.org/0009-0008-4865-451X"
+  - given-names: "Miao"
+    family-names: "Wang"
+    affiliation: "Department of Social Work and Social Policy, School of Sociology, Nankai University, Tianjin, China"
+    orcid: "https://orcid.org/0000-0002-1024-0513"
+    email: "wangmiao8609@163.com"
+  - given-names: "Nanyi"
+    family-names: "Deng"
+    affiliation: "Graduate School of Social Service, Fordham University, New York, NY, USA"
+    orcid: "https://orcid.org/0009-0009-2017-049X"
+  - given-names: "Eunhye"
+    family-names: "Ahn"
+    affiliation: "School of Human Ecology, University of Wisconsin–Madison, Madison, WI, USA"
+    orcid: "https://orcid.org/0000-0003-3777-4213"
+contact:
+  - given-names: "Miao"
+    family-names: "Wang"
+    affiliation: "School of Social Work and Social Policy, Nankai University, Haihe Education Park, Tianjin 300350, China"
+    email: "wangmiao8609@163.com"
+    orcid: "https://orcid.org/0000-0002-1024-0513"
 version: "1.0.0"
 date-released: "2026-07-12"
 license: MIT
@@ -22,6 +41,29 @@ keywords:
   - social work informatics
   - information retrieval evaluation
   - evidence-based practice
+preferred-citation:
+  type: article
+  title: "Searching the Social Work Literature by Meaning: A Practical Evaluation of Free and Commercial Artificial Intelligence Search Tools"
+  status: "submitted"
+  notes: "Manuscript currently under review. This entry will be updated with the journal, volume, pages, and DOI upon acceptance."
+  authors:
+    - given-names: "Brian E."
+      family-names: "Perron"
+      affiliation: "School of Social Work, University of Michigan, Ann Arbor, MI, United States"
+      orcid: "https://orcid.org/0009-0008-4865-451X"
+    - given-names: "Miao"
+      family-names: "Wang"
+      affiliation: "Department of Social Work and Social Policy, School of Sociology, Nankai University, Tianjin, China"
+      orcid: "https://orcid.org/0000-0002-1024-0513"
+      email: "wangmiao8609@163.com"
+    - given-names: "Nanyi"
+      family-names: "Deng"
+      affiliation: "Graduate School of Social Service, Fordham University, New York, NY, USA"
+      orcid: "https://orcid.org/0009-0009-2017-049X"
+    - given-names: "Eunhye"
+      family-names: "Ahn"
+      affiliation: "School of Human Ecology, University of Wisconsin–Madison, Madison, WI, USA"
+      orcid: "https://orcid.org/0000-0003-3777-4213"
 references:
   - type: article
     title: "Evolution of social work knowledge production over 35 years: An AI-enabled analysis of trends in empiricism, methodology, collaboration, citation patterns, and output"
@@ -36,4 +78,3 @@ references:
     year: 2026
     doi: "10.1177/10497315261416833"
     notes: "Documents the Social Work Research Database (SWRD) v2 infrastructure this benchmark's corpus is drawn from."
-
