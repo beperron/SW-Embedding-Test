@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Embedding Test — Searching the Social Work Literature by Meaning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body { margin: 0; background: #FBFAF7; color: #1C1B17; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-feature-settings: 'ss01','cv11'; }
+  *, *::before, *::after { box-sizing: border-box; }
+  a { color: #15654A; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 120ms cubic-bezier(0.2,0,0.2,1); }
+  a:hover { border-bottom-color: currentColor; }
+  ::selection { background: #C7E2D6; color: #0C3F2E; }
+</style>
+</head>
+<body>
+
+<div style="width:100%; min-height:100vh; background:#FBFAF7;">
+
+  <!-- ================= TOP BAR ================= -->
+  <header style="position:sticky; top:0; z-index:50; background:rgba(251,250,247,0.86); backdrop-filter:blur(8px); border-bottom:1px solid #E4E2D8;">
+    <div style="max-width:1100px; margin:0 auto; padding:0 clamp(20px,3vw,32px); height:58px; display:flex; align-items:center; justify-content:space-between; gap:24px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span style="width:14px; height:14px; border-radius:3px; background:#15654A; display:block;"></span>
+        <span style="font-size:15px; font-weight:600; letter-spacing:-0.01em; color:#1C1B17;">The Embedding Test</span>
+      </div>
+      <nav style="display:flex; align-items:center; gap:26px;">
+        <a href="#what" style="font-size:13.5px; font-weight:500; color:#46443C; border:none;">What they are</a>
+        <a href="#why" style="font-size:13.5px; font-weight:500; color:#46443C; border:none;">Why they matter</a>
+        <a href="#test" style="font-size:13.5px; font-weight:500; color:#46443C; border:none;">The test</a>
+        <a href="#compare" style="font-size:13.5px; font-weight:500; color:#46443C; border:none;">Comparison</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section style="position:relative; overflow:hidden; background:radial-gradient(1100px 640px at 82% -8%, #26251D 0%, #1C1B17 44%, #0E0D0A 100%);">
+    <div aria-hidden="true" style="position:absolute; inset:0; background-image:radial-gradient(rgba(120,190,160,0.10) 1px, transparent 1.4px); background-size:26px 26px; mask-image:linear-gradient(180deg, #000 0%, #000 55%, transparent 100%);"></div>
+    <div aria-hidden="true" style="position:absolute; top:96px; right:11%; width:6px; height:6px; border-radius:999px; background:#2F9D77; box-shadow:110px 46px 0 -1px rgba(47,157,119,0.6), 190px -28px 0 -2px rgba(47,157,119,0.4), 54px 132px 0 -1px rgba(47,157,119,0.5), -46px 74px 0 -2px rgba(47,157,119,0.32);"></div>
+
+    <div style="position:relative; max-width:1100px; margin:0 auto; padding:clamp(60px,8vw,100px) clamp(20px,3vw,32px) clamp(52px,6vw,76px);">
+      <p style="margin:0 0 22px; font-size:11.5px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#5FC79E;">Benchmark report · SWRD v2</p>
+      <h1 style="margin:0; max-width:27ch; font-size:clamp(27px,3.8vw,44px); line-height:1.14; font-weight:600; letter-spacing:-0.016em; color:#FBFAF7;">Searching the Literature by Meaning: Benchmarking Free and Commercial Word Embedding Models on Social Work Text</h1>
+
+      <!-- authors -->
+      <p style="margin:26px 0 0; max-width:66ch; font-size:clamp(15px,1.7vw,17px); line-height:1.7; color:#EDEBE4;">Brian E. Perron<sup style="font-size:0.66em; color:#5FC79E;">1</sup>,&ensp;Miao Wang<sup style="font-size:0.66em; color:#5FC79E;">2*</sup>,&ensp;Nanyi Deng<sup style="font-size:0.66em; color:#5FC79E;">3</sup>,&ensp;Eunhye Ahn<sup style="font-size:0.66em; color:#5FC79E;">4</sup></p>
+
+      <!-- affiliations -->
+      <div style="margin-top:16px; display:flex; flex-direction:column; gap:5px; max-width:74ch;">
+        <p style="margin:0; font-size:12.5px; line-height:1.5; color:#8C8A7E;"><span style="color:#5FC79E; font-family:'IBM Plex Mono',monospace;">1</span>&ensp;School of Social Work, University of Michigan, Ann Arbor, MI, United States</p>
+        <p style="margin:0; font-size:12.5px; line-height:1.5; color:#8C8A7E;"><span style="color:#5FC79E; font-family:'IBM Plex Mono',monospace;">2</span>&ensp;Department of Social Work and Social Policy, School of Sociology, Nankai University, Tianjin, China</p>
+        <p style="margin:0; font-size:12.5px; line-height:1.5; color:#8C8A7E;"><span style="color:#5FC79E; font-family:'IBM Plex Mono',monospace;">3</span>&ensp;Graduate School of Social Service, Fordham University, New York, NY, USA</p>
+        <p style="margin:0; font-size:12.5px; line-height:1.5; color:#8C8A7E;"><span style="color:#5FC79E; font-family:'IBM Plex Mono',monospace;">4</span>&ensp;School of Human Ecology, University of Wisconsin–Madison, Madison, WI, USA</p>
+        <p style="margin:6px 0 0; font-size:12px; line-height:1.5; color:#6E6B5E;"><span style="color:#8C8A7E;">*</span>&ensp;Corresponding author</p>
+      </div>
+
+      <!-- author note / ORCIDs -->
+      <div style="margin-top:20px; padding-top:18px; border-top:1px solid rgba(255,255,255,0.12); max-width:74ch;">
+        <p style="margin:0 0 10px; font-size:10.5px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#6E6B5E;">Author note · ORCID</p>
+        <div style="display:flex; flex-wrap:wrap; column-gap:26px; row-gap:8px;">
+          <a href="https://orcid.org/0009-0008-4865-451X" style="display:inline-flex; align-items:center; gap:7px; font-size:13px; color:#CFE7DC; border:none;"><span style="width:6px; height:6px; border-radius:999px; background:#5FC79E;"></span>Brian E. Perron</a>
+          <a href="https://orcid.org/0000-0002-1024-0513" style="display:inline-flex; align-items:center; gap:7px; font-size:13px; color:#CFE7DC; border:none;"><span style="width:6px; height:6px; border-radius:999px; background:#5FC79E;"></span>Miao Wang</a>
+          <a href="https://orcid.org/0009-0009-2017-049X" style="display:inline-flex; align-items:center; gap:7px; font-size:13px; color:#CFE7DC; border:none;"><span style="width:6px; height:6px; border-radius:999px; background:#5FC79E;"></span>Nanyi Deng</a>
+          <a href="https://orcid.org/0000-0003-3777-4213" style="display:inline-flex; align-items:center; gap:7px; font-size:13px; color:#CFE7DC; border:none;"><span style="width:6px; height:6px; border-radius:999px; background:#5FC79E;"></span>Eunhye Ahn</a>
+        </div>
+      </div>
+
+      <!-- actions: repo + stars -->
+      <div style="margin-top:26px; display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
+        <a href="https://github.com/beperron/SW-Embedding-Test" style="display:inline-flex; align-items:center; gap:9px; height:42px; padding:0 20px; background:#FBFAF7; color:#1C1B17; font-size:14.5px; font-weight:600; border-radius:6px; border:none;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.41-5.26 5.69.41.36.78 1.06.78 2.14 0 1.55-.02 2.79-.02 3.17 0 .31.21.68.8.56A11.53 11.53 0 0 0 23.5 12.02C23.5 5.74 18.27.5 12 .5z"/></svg>
+          View the repository
+        </a>
+        <a href="https://github.com/beperron/SW-Embedding-Test/stargazers" style="display:inline-flex; align-items:center; border:none; height:20px;"><img src="https://img.shields.io/github/stars/beperron/SW-Embedding-Test?style=for-the-badge&logo=github&label=Stars&color=2F9D77&labelColor=1C1B17" alt="GitHub stars" style="height:36px; display:block;"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 01 · WHAT IS AN EMBEDDING ================= -->
+  <section id="what" style="max-width:1100px; margin:0 auto; padding:clamp(64px,7vw,92px) clamp(20px,3vw,32px);">
+    <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:8px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; letter-spacing:0.08em; color:#A6A399;">01</span>
+      <span style="height:1px; flex:0 0 40px; background:#D3D0C4; align-self:center;"></span>
+      <span style="font-size:11.5px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#78756A;">The basics</span>
+    </div>
+    <h2 style="margin:0; max-width:20ch; font-size:clamp(26px,3.2vw,34px); font-weight:600; letter-spacing:-0.018em; color:#1C1B17; line-height:1.15;">What is an embedding?</h2>
+
+    <div style="margin-top:28px; display:grid; grid-template-columns:1.05fr 0.95fr; gap:clamp(32px,5vw,64px); align-items:center;">
+      <div>
+        <p style="margin:0; font-size:16px; color:#46443C;">An embedding is a list of numbers that stands in for a piece of text. A model reads a passage — a title, an abstract, a question — and returns a fixed-length vector: a single point in a high-dimensional space.</p>
+        <p style="margin:16px 0 0; font-size:16px; color:#46443C;">The useful part is where those points land. Two passages about the same idea sit close together, <strong style="font-weight:600; color:#1C1B17;">even when they share no words.</strong> Two unrelated passages sit far apart. Meaning becomes distance — and distance is something a computer can measure instantly.</p>
+        <div style="margin-top:22px; border-left:3px solid #15654A; background:#EEF4F0; border-radius:0 6px 6px 0; padding:16px 20px;">
+          <p style="margin:0; font-size:14.5px; color:#28463A;">A search for <em style="font-style:italic; color:#0C3F2E;">kinship care</em> lands next to a paper that only ever wrote <em style="font-style:italic; color:#0C3F2E;">relative caregivers</em> — because the two phrases mean the same thing, the model puts them in the same neighborhood.</p>
+        </div>
+      </div>
+
+      <!-- meaning-map data visual -->
+      <div style="position:relative; aspect-ratio:1/1; background:#FFFFFF; border:1px solid #E4E2D8; border-radius:10px; box-shadow:0 1px 2px rgba(28,27,23,0.05),0 0 0 1px rgba(28,27,23,0.02); overflow:hidden;">
+        <div aria-hidden="true" style="position:absolute; inset:0; background-image:linear-gradient(#F1F0EA 1px, transparent 1px), linear-gradient(90deg, #F1F0EA 1px, transparent 1px); background-size:40px 40px;"></div>
+        <span style="position:absolute; left:14px; top:12px; font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.04em; color:#A6A399;">a map of meaning</span>
+        <!-- cluster A -->
+        <div style="position:absolute; left:22%; top:30%; width:11px; height:11px; border-radius:999px; background:#15654A;"></div>
+        <div style="position:absolute; left:32%; top:24%; width:9px; height:9px; border-radius:999px; background:#2F9D77;"></div>
+        <div style="position:absolute; left:29%; top:38%; width:8px; height:8px; border-radius:999px; background:#2F9D77;"></div>
+        <span style="position:absolute; left:16%; top:44%; font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:#15654A; background:#EEF4F0; padding:2px 6px; border-radius:3px;">kinship care</span>
+        <span style="position:absolute; left:37%; top:15%; font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:#28463A;">relative caregivers</span>
+        <!-- cluster B -->
+        <div style="position:absolute; left:72%; top:66%; width:11px; height:11px; border-radius:999px; background:#8A6D3B;"></div>
+        <div style="position:absolute; left:64%; top:72%; width:8px; height:8px; border-radius:999px; background:#B08A4E;"></div>
+        <div style="position:absolute; left:78%; top:76%; width:8px; height:8px; border-radius:999px; background:#B08A4E;"></div>
+        <span style="position:absolute; left:56%; top:58%; font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:#75603A;">opioid policy</span>
+        <!-- far outlier -->
+        <div style="position:absolute; left:80%; top:22%; width:7px; height:7px; border-radius:999px; background:#A6A399;"></div>
+        <span style="position:absolute; left:60%; top:26%; font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:#A6A399;">school funding</span>
+        <span style="position:absolute; left:14px; bottom:12px; font-family:'IBM Plex Mono',monospace; font-size:10px; color:#C0BDB2;">nearby = similar meaning · far = unrelated</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 02 · WHY THEY MATTER ================= -->
+  <section id="why" style="background:#F4F3EE; border-top:1px solid #E4E2D8; border-bottom:1px solid #E4E2D8;">
+    <div style="max-width:1100px; margin:0 auto; padding:clamp(64px,7vw,92px) clamp(20px,3vw,32px);">
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:8px;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; letter-spacing:0.08em; color:#A6A399;">02</span>
+        <span style="height:1px; flex:0 0 40px; background:#D3D0C4; align-self:center;"></span>
+        <span style="font-size:11.5px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#78756A;">Why it matters</span>
+      </div>
+      <h2 style="margin:0; max-width:24ch; font-size:clamp(26px,3.2vw,34px); font-weight:600; letter-spacing:-0.018em; color:#1C1B17; line-height:1.15;">Keyword search matches strings. Embeddings match meaning.</h2>
+      <p style="margin:16px 0 0; max-width:66ch; font-size:16px; color:#46443C;">Keyword search finds <em style="font-style:italic;">kinship care</em> only where those exact words appear. It misses every paper that wrote <em style="font-style:italic;">relative caregivers</em>, <em style="font-style:italic;">grandparents raising grandchildren</em>, or <em style="font-style:italic;">informal placement</em> — different words for the same subject. An embedding search surfaces all of them from a single query, because it is comparing meaning rather than spelling.</p>
+
+      <div style="margin-top:36px; display:grid; grid-template-columns:repeat(2,1fr); gap:20px;">
+        <div style="background:#FFFFFF; border:1px solid #E4E2D8; border-radius:8px; padding:24px 26px; box-shadow:0 1px 2px rgba(28,27,23,0.04),0 0 0 1px rgba(28,27,23,0.02);">
+          <h3 style="margin:0; font-size:16px; font-weight:600; color:#1C1B17;">Search by meaning</h3>
+          <p style="margin:8px 0 0; font-size:14px; color:#46443C;">Retrieve everything on a topic across decades of writing, robust to changing vocabulary and jargon.</p>
+        </div>
+        <div style="background:#FFFFFF; border:1px solid #E4E2D8; border-radius:8px; padding:24px 26px; box-shadow:0 1px 2px rgba(28,27,23,0.04),0 0 0 1px rgba(28,27,23,0.02);">
+          <h3 style="margin:0; font-size:16px; font-weight:600; color:#1C1B17;">Cluster and map</h3>
+          <p style="margin:8px 0 0; font-size:14px; color:#46443C;">Group documents by theme automatically, and see the shape of a literature without reading every entry.</p>
+        </div>
+        <div style="background:#FFFFFF; border:1px solid #E4E2D8; border-radius:8px; padding:24px 26px; box-shadow:0 1px 2px rgba(28,27,23,0.04),0 0 0 1px rgba(28,27,23,0.02);">
+          <h3 style="margin:0; font-size:16px; font-weight:600; color:#1C1B17;">Feed an AI assistant</h3>
+          <p style="margin:8px 0 0; font-size:14px; color:#46443C;">Embeddings are how a language model finds the right passages to ground an answer — the retrieval half of retrieval-augmented generation.</p>
+        </div>
+        <div style="background:#FFFFFF; border:1px solid #E4E2D8; border-radius:8px; padding:24px 26px; box-shadow:0 1px 2px rgba(28,27,23,0.04),0 0 0 1px rgba(28,27,23,0.02);">
+          <h3 style="margin:0; font-size:16px; font-weight:600; color:#1C1B17;">Find duplicates and near-matches</h3>
+          <p style="margin:8px 0 0; font-size:14px; color:#46443C;">Detect records that say the same thing in different words — deduplication that string matching cannot do.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 03 · THE TEST ================= -->
+  <section id="test" style="max-width:1100px; margin:0 auto; padding:clamp(64px,7vw,92px) clamp(20px,3vw,32px);">
+    <div style="display:grid; grid-template-columns:minmax(240px,0.85fr) 1.15fr; gap:clamp(32px,5vw,64px); align-items:start;">
+      <div style="position:sticky; top:80px;">
+        <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:8px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; letter-spacing:0.08em; color:#A6A399;">03</span>
+          <span style="height:1px; flex:0 0 40px; background:#D3D0C4; align-self:center;"></span>
+          <span style="font-size:11.5px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#78756A;">The test</span>
+        </div>
+        <h2 style="margin:0; font-size:clamp(26px,3.2vw,34px); font-weight:600; letter-spacing:-0.018em; color:#1C1B17; line-height:1.15;">Does the expensive option actually win?</h2>
+      </div>
+      <div>
+        <p style="margin:0; font-size:16px; color:#46443C;">Choosing an embedding model is usually done by reputation: reach for the best-known commercial API and move on. We wanted evidence instead.</p>
+        <p style="margin:16px 0 0; font-size:16px; color:#46443C;">Fourteen candidate models were benchmarked on the real corpus — 64,956 social work research records — pitting twelve open-weight models you can download and run locally against two commercial embedding services, OpenAI's <span style="font-family:'IBM Plex Mono',monospace; font-size:13.5px; color:#1C1B17;">text-embedding-3</span> family.</p>
+        <p style="margin:16px 0 0; font-size:16px; color:#46443C;">The measure was retrieval quality: given a query, how well does each model surface the genuinely relevant records? The results were consistent — and not what reputation predicts.</p>
+
+        <div style="margin-top:26px; display:flex; flex-wrap:wrap; gap:24px; padding-top:22px; border-top:1px solid #E4E2D8;">
+          <div>
+            <div style="font-size:30px; font-weight:600; letter-spacing:-0.02em; color:#15654A; line-height:1;">14</div>
+            <div style="margin-top:6px; font-size:13px; color:#78756A;">models benchmarked</div>
+          </div>
+          <div>
+            <div style="font-size:30px; font-weight:600; letter-spacing:-0.02em; color:#15654A; line-height:1;">64,956</div>
+            <div style="margin-top:6px; font-size:13px; color:#78756A;">real research records</div>
+          </div>
+          <div>
+            <div style="font-size:30px; font-weight:600; letter-spacing:-0.02em; color:#15654A; line-height:1;">$0</div>
+            <div style="margin-top:6px; font-size:13px; color:#78756A;">cost of the model that won</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 04 · THE FINDING ================= -->
+  <section id="finding" style="background:#1C1B17; position:relative; overflow:hidden;">
+    <div aria-hidden="true" style="position:absolute; inset:0; background-image:radial-gradient(rgba(120,190,160,0.07) 1px, transparent 1.4px); background-size:26px 26px;"></div>
+    <div style="position:relative; max-width:1100px; margin:0 auto; padding:clamp(64px,7vw,92px) clamp(20px,3vw,32px);">
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:8px;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; letter-spacing:0.08em; color:#6E6B5E;">04</span>
+        <span style="height:1px; flex:0 0 40px; background:rgba(255,255,255,0.22); align-self:center;"></span>
+        <span style="font-size:11.5px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#5FC79E;">What we found</span>
+      </div>
+      <h2 style="margin:0; max-width:22ch; font-size:clamp(26px,3.2vw,34px); font-weight:600; letter-spacing:-0.018em; color:#FBFAF7; line-height:1.15;">Small and free held its own — and then some</h2>
+
+      <div style="margin-top:36px; display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+        <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.12); border-radius:8px; padding:26px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#8C8A7E;">finding 01</span>
+          <h3 style="margin:10px 0 0; font-size:18px; font-weight:600; color:#FBFAF7;">Embeddings beat keywords, every time</h3>
+          <p style="margin:10px 0 0; font-size:14.5px; color:#B9B7AC;">Even the weakest embedding model retrieved more relevant work than keyword matching. For search by meaning, this is table stakes.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.12); border-radius:8px; padding:26px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#8C8A7E;">finding 02</span>
+          <h3 style="margin:10px 0 0; font-size:18px; font-weight:600; color:#FBFAF7;">Open matched or beat commercial</h3>
+          <p style="margin:10px 0 0; font-size:14.5px; color:#B9B7AC;">Open-weight models you can run on your own hardware equalled — and in cases exceeded — the paid commercial embedding APIs on this literature.</p>
+        </div>
+        <div style="background:rgba(47,157,119,0.10); border:1px solid rgba(47,157,119,0.4); border-radius:8px; padding:26px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#5FC79E;">finding 03</span>
+          <h3 style="margin:10px 0 0; font-size:18px; font-weight:600; color:#FBFAF7;">A 300M model won on value</h3>
+          <p style="margin:10px 0 0; font-size:14.5px; color:#CFE7DC;"><strong style="color:#FBFAF7; font-weight:600;">EmbeddingGemma</strong> — 300 million parameters, small enough to run on a laptop — offered the strongest quality-to-size ratio of everything tested.</p>
+        </div>
+      </div>
+      <p style="margin:22px 0 0; font-size:13px; color:#8C8A7E; max-width:70ch;">Findings from the SWRD v2 retrieval benchmark (manuscript currently under review). Results are specific to retrieval on research-abstract text; your corpus may differ — which is exactly why testing beats reputation.</p>
+    </div>
+  </section>
+
+  <!-- ================= 05 · COMPARISON ================= -->
+  <section id="compare" style="max-width:1100px; margin:0 auto; padding:clamp(64px,7vw,92px) clamp(20px,3vw,32px);">
+    <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:8px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; letter-spacing:0.08em; color:#A6A399;">05</span>
+      <span style="height:1px; flex:0 0 40px; background:#D3D0C4; align-self:center;"></span>
+      <span style="font-size:11.5px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#78756A;">Side by side</span>
+    </div>
+    <h2 style="margin:0; max-width:24ch; font-size:clamp(26px,3.2vw,34px); font-weight:600; letter-spacing:-0.018em; color:#1C1B17; line-height:1.15;">Local and open vs. a commercial API</h2>
+    <p style="margin:16px 0 0; max-width:64ch; font-size:16px; color:#46443C;">Once retrieval quality is comparable, the decision comes down to everything else — cost, privacy, and control. That is where the two approaches diverge sharply.</p>
+
+    <div style="margin-top:34px; border:1px solid #E4E2D8; border-radius:10px; overflow:hidden; box-shadow:0 1px 2px rgba(28,27,23,0.05),0 0 0 1px rgba(28,27,23,0.02);">
+      <!-- header row -->
+      <div style="display:grid; grid-template-columns:1.2fr 1fr 1fr;">
+        <div style="padding:18px 24px; background:#F4F3EE; border-bottom:1px solid #E4E2D8;"></div>
+        <div style="padding:18px 24px; background:#EEF4F0; border-bottom:1px solid #C3DBD0; border-left:1px solid #E4E2D8;">
+          <div style="font-size:15px; font-weight:600; color:#0C3F2E;">Open &amp; local</div>
+          <div style="margin-top:3px; font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:#3B6B58;">EmbeddingGemma · 300M · 768-dim</div>
+        </div>
+        <div style="padding:18px 24px; background:#F4F3EE; border-bottom:1px solid #E4E2D8; border-left:1px solid #E4E2D8;">
+          <div style="font-size:15px; font-weight:600; color:#1C1B17;">Commercial API</div>
+          <div style="margin-top:3px; font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:#78756A;">text-embedding-3-large · 3072-dim</div>
+        </div>
+      </div>
+      <!-- rows -->
+      <div style="display:grid; grid-template-columns:1.2fr 1fr 1fr; border-bottom:1px solid #EDEBE3;">
+        <div style="padding:16px 24px; font-size:14px; font-weight:600; color:#1C1B17;">Where it runs</div>
+        <div style="padding:16px 24px; font-size:14px; color:#28463A; border-left:1px solid #EDEBE3; background:#F8FBF9;">On your own laptop or server</div>
+        <div style="padding:16px 24px; font-size:14px; color:#46443C; border-left:1px solid #EDEBE3;">A remote server you call over the network</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.2fr 1fr 1fr; border-bottom:1px solid #EDEBE3;">
+        <div style="padding:16px 24px; font-size:14px; font-weight:600; color:#1C1B17;">Cost to embed a corpus</div>
+        <div style="padding:16px 24px; font-size:14px; color:#28463A; border-left:1px solid #EDEBE3; background:#F8FBF9;"><strong style="font-weight:600;">Free</strong>, at any scale</div>
+        <div style="padding:16px 24px; font-size:14px; color:#46443C; border-left:1px solid #EDEBE3;">Billed per token; grows with corpus size</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.2fr 1fr 1fr; border-bottom:1px solid #EDEBE3;">
+        <div style="padding:16px 24px; font-size:14px; font-weight:600; color:#1C1B17;">Your text leaves your machine</div>
+        <div style="padding:16px 24px; font-size:14px; color:#28463A; border-left:1px solid #EDEBE3; background:#F8FBF9;"><strong style="font-weight:600;">No</strong> — nothing is transmitted</div>
+        <div style="padding:16px 24px; font-size:14px; color:#46443C; border-left:1px solid #EDEBE3;">Yes — sent to the provider</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.2fr 1fr 1fr; border-bottom:1px solid #EDEBE3;">
+        <div style="padding:16px 24px; font-size:14px; font-weight:600; color:#1C1B17;">Reproducible over time</div>
+        <div style="padding:16px 24px; font-size:14px; color:#28463A; border-left:1px solid #EDEBE3; background:#F8FBF9;">Yes — the weights are fixed and archivable</div>
+        <div style="padding:16px 24px; font-size:14px; color:#46443C; border-left:1px solid #EDEBE3;">Subject to change or deprecation by the vendor</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.2fr 1fr 1fr;">
+        <div style="padding:16px 24px; font-size:14px; font-weight:600; color:#1C1B17;">Retrieval quality on this corpus</div>
+        <div style="padding:16px 24px; font-size:14px; color:#28463A; border-left:1px solid #EDEBE3; background:#F8FBF9;"><strong style="font-weight:600;">Matched or better</strong></div>
+        <div style="padding:16px 24px; font-size:14px; color:#46443C; border-left:1px solid #EDEBE3;">Strong — the baseline it was measured against</div>
+      </div>
+    </div>
+    <p style="margin:16px 0 0; font-size:12.5px; color:#A6A399;">Model specifications are the providers' published figures. Quality claims reflect this corpus benchmark, not a universal ranking.</p>
+  </section>
+
+  <!-- ================= 06 · WHY SMALL + LOCAL ================= -->
+  <section style="background:#F4F3EE; border-top:1px solid #E4E2D8; border-bottom:1px solid #E4E2D8;">
+    <div style="max-width:1100px; margin:0 auto; padding:clamp(64px,7vw,92px) clamp(20px,3vw,32px);">
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:8px;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; letter-spacing:0.08em; color:#A6A399;">06</span>
+        <span style="height:1px; flex:0 0 40px; background:#D3D0C4; align-self:center;"></span>
+        <span style="font-size:11.5px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#78756A;">Why it changes the calculus</span>
+      </div>
+      <h2 style="margin:0; max-width:24ch; font-size:clamp(26px,3.2vw,34px); font-weight:600; letter-spacing:-0.018em; color:#1C1B17; line-height:1.15;">When quality is even, the free option wins on everything else</h2>
+
+      <div style="margin-top:36px; display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:1px solid #E4E2D8; border-radius:8px; overflow:hidden; background:#FFFFFF;">
+        <div style="padding:26px 24px; border-right:1px solid #E4E2D8;">
+          <div style="width:30px; height:30px; border-radius:7px; background:#EEF4F0; display:flex; align-items:center; justify-content:center; color:#15654A;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3 style="margin:14px 0 0; font-size:15px; font-weight:600; color:#1C1B17;">Free at any scale</h3>
+          <p style="margin:6px 0 0; font-size:13.5px; color:#46443C;">Embed millions of documents for nothing. No per-token meter running.</p>
+        </div>
+        <div style="padding:26px 24px; border-right:1px solid #E4E2D8;">
+          <div style="width:30px; height:30px; border-radius:7px; background:#EEF4F0; display:flex; align-items:center; justify-content:center; color:#15654A;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 style="margin:14px 0 0; font-size:15px; font-weight:600; color:#1C1B17;">Private by default</h3>
+          <p style="margin:6px 0 0; font-size:13.5px; color:#46443C;">Sensitive text never leaves your control — nothing is sent to a third party.</p>
+        </div>
+        <div style="padding:26px 24px; border-right:1px solid #E4E2D8;">
+          <div style="width:30px; height:30px; border-radius:7px; background:#EEF4F0; display:flex; align-items:center; justify-content:center; color:#15654A;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+          </div>
+          <h3 style="margin:14px 0 0; font-size:15px; font-weight:600; color:#1C1B17;">Reproducible</h3>
+          <p style="margin:6px 0 0; font-size:13.5px; color:#46443C;">The weights are fixed. Results won't shift when a vendor updates a model.</p>
+        </div>
+        <div style="padding:26px 24px;">
+          <div style="width:30px; height:30px; border-radius:7px; background:#EEF4F0; display:flex; align-items:center; justify-content:center; color:#15654A;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 style="margin:14px 0 0; font-size:15px; font-weight:600; color:#1C1B17;">Runs on a laptop</h3>
+          <p style="margin:6px 0 0; font-size:13.5px; color:#46443C;">A 300M model fits on ordinary hardware — no account, no GPU cluster.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 07 · TAKEAWAY ================= -->
+  <section style="max-width:1100px; margin:0 auto; padding:clamp(64px,7vw,92px) clamp(20px,3vw,32px);">
+    <div style="max-width:72ch;">
+      <div style="display:flex; align-items:baseline; gap:14px; margin-bottom:8px;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; letter-spacing:0.08em; color:#A6A399;">07</span>
+        <span style="height:1px; flex:0 0 40px; background:#D3D0C4; align-self:center;"></span>
+        <span style="font-size:11.5px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:#78756A;">The takeaway</span>
+      </div>
+      <h2 style="margin:0; font-size:clamp(26px,3.2vw,34px); font-weight:600; letter-spacing:-0.018em; color:#1C1B17; line-height:1.15;">Make the paid API earn its place</h2>
+      <p style="margin:18px 0 0; font-size:17px; color:#46443C;">For most teams searching their own documents, a small open embedding model is the right default: it costs nothing, keeps your text private, and — on the evidence here — retrieves at least as well as the popular commercial service. Reach for a paid API when you have a concrete reason to, not out of habit.</p>
+      <p style="margin:16px 0 0; font-size:17px; color:#46443C;">And whatever you choose, test it on your own text. Reputation is a poor substitute for a benchmark on the data you actually have.</p>
+
+      <div style="margin-top:28px; border:1px solid #E4E2D8; border-left:3px solid #15654A; border-radius:0 6px 6px 0; background:#EEF4F0; padding:22px 26px;">
+        <p style="margin:0; font-size:14.5px; color:#28463A;">This report accompanies the SWRD v2 retrieval benchmark repository, where the full test collection, evaluation code, and results are openly available.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer style="background:#0E0D0A; position:relative; overflow:hidden;">
+    <div aria-hidden="true" style="position:absolute; inset:0; background-image:radial-gradient(rgba(120,190,160,0.05) 1px, transparent 1.4px); background-size:26px 26px; mask-image:linear-gradient(180deg, transparent 0%, #000 100%);"></div>
+    <div style="position:relative; max-width:1100px; margin:0 auto; padding:clamp(52px,6vw,72px) clamp(20px,3vw,32px) 40px;">
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:36px; align-items:flex-start;">
+        <div style="max-width:44ch;">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="width:14px; height:14px; border-radius:3px; background:#2F9D77; display:block;"></span>
+            <span style="font-size:16px; font-weight:600; color:#FBFAF7;">The Embedding Test</span>
+          </div>
+          <p style="margin:16px 0 0; font-size:14px; color:#8C8A7E;">A practical field report on text embeddings — what they are, why they matter, and why small open models deserve to be the default. Prepared for the SWRD v2 retrieval benchmark.</p>
+        </div>
+        <div>
+          <span style="font-size:11.5px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#6E6B5E;">More</span>
+          <div style="margin-top:14px; display:flex; flex-direction:column; gap:10px;">
+            <a href="https://github.com/beperron/SW-Embedding-Test" style="font-size:14px; color:#CFE7DC; border:none;">GitHub repository</a>
+            <a href="https://github.com/beperron/SW-Embedding-Test/blob/master/CITATION.cff" style="font-size:14px; color:#CFE7DC; border:none;">How to cite this work</a>
+            <a href="mailto:beperron@umich.edu" style="font-size:14px; color:#CFE7DC; border:none;">beperron@umich.edu</a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:44px; padding-top:22px; border-top:1px solid rgba(255,255,255,0.1); display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px; align-items:center;">
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:#6E6B5E;">Benchmark methods · manuscript currently under review</span>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:#6E6B5E;">EmbeddingGemma · Google · 300M · 768-dim</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
