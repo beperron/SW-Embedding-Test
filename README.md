@@ -14,7 +14,7 @@
 
 ---
 
-## 🧭 In one paragraph
+## 🧭 Summary of the problem:
 
 Every year, more social work research is published than the year before, which makes it easier to
 miss the study that matters. Most literature search still works by matching exact keywords, so a
@@ -29,7 +29,7 @@ beat the paid commercial standard.**
 ## 📊 Results at a glance
 
 <div align="center">
-<img src="assets/leaderboard.png" alt="Bar chart ranking 14 embedding models and a keyword baseline by search quality (nDCG@10). The top scores, in descending order: Qwen3-Embedding-8B 0.842, Qwen3-Embedding-4B 0.825, OpenAI text-embedding-3-large 0.807 (paid), BGE-large-en and EmbeddingGemma both 0.793, down to BM25 keyword search at 0.604." width="640">
+<img src="assets/leaderboard.png" alt="Bar chart ranking 14 embedding models and a keyword baseline by search quality (nDCG@10). The top scores, in descending order: Qwen3-Embedding-8B 0.842, Qwen3-Embedding-4B 0.825, OpenAI text-embedding-3-large 0.807 (paid), BGE-large-en and EmbeddingGemma both 0.793, down to BM25 keyword search at 0.604." width="440">
 </div>
 
 - 🏆 **Best overall:** EmbeddingGemma + a reranker (**0.846**) — beats every paid tool, on a model small enough for a laptop.
