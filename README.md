@@ -218,8 +218,7 @@ output was reviewed by the authors, who take full responsibility for its accurac
 ## Citation
 
 If this framework, test collection, or reported results are used in other work, please cite this
-repository; see [`CITATION.cff`](CITATION.cff) for the current citation record, including the
-in-review manuscript entry.
+repository; see [`CITATION.cff`](CITATION.cff) for the current citation record.
 
 ## License
 
