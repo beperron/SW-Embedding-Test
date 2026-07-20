@@ -1,6 +1,13 @@
-# Test-collection generation and LLM-judge settings (local Ollama; distinct families to limit circularity).
+# Test-collection generation and LLM-judge settings.
+# Judging is local Ollama; query generation is not (see generator_model).
 backend: ollama
-generator_model: "gpt-oss:20b"       # query generation
+# Query generation: Claude Opus 4.8, via the Claude subscription — NOT a local model.
+# This field previously read "gpt-oss:20b", which was wrong for the reported results.
+# gpt-oss:20b produced the *first* query set, which was judged too weak and discarded;
+# the 150 curated queries behind every reported number were Claude-generated and
+# critic-filtered. The config had never been updated after that switch.
+generator_model: "claude-opus-4-8"
+generator_backend: anthropic          # subscription; not served through Ollama
 judge_model: "qwen3.6:35b"           # single relevance judge (CUDA/GGUF build of the Mac's qwen3.6:35b-mlx — same weights; see MIGRATION.md)
 graded_scale: [0, 1, 2, 3]           # 0 irrelevant .. 3 perfectly relevant
 human_validation_n: 150              # stratified sample re-rated by a human expert
